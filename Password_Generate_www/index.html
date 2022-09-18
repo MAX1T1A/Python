@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="eel.js"></script>
+  </head>
+  <body>
+      
+      <div class="box">
+        <h1 class="text_header">The password is generated from these characters<br>↓</h1>
+
+        <p class="text">ABCDEFGHIJKLMNOPRQSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789<br>!№;%:?*())_+/</p>
+
+        <h3 class="max_length">MAX ==> 75</h3>
+
+        <form class="forms" action="#">
+          <input class="length" type="text" placeholder="Length">
+          <input class="name" type="text" placeholder="Name">
+          <input class="create" type="submit" value="Create">
+        </form>
+      </div>
+
+      <script>
+        let btn = document.querySelector(".create");
+        btn.addEventListener("click", sendData);
+
+        async function sendData() {
+
+          let length = document.querySelector(".length").value;
+          let name = document.querySelector(".name").value;
+
+
+          await eel.password_(Number(length), name);
+
+        }
+      </script>
+
+  </body>
+</html>
